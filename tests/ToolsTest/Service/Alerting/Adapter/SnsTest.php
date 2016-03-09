@@ -45,6 +45,7 @@ class SnsTest extends \PHPUnit_Framework_TestCase
     {
         $message = 'test message';
         $topic   = 'test topic';
+        $subject = 'test subject';
 
         $snsMock = $this->getMockBuilder('\Aws\Sns\SnsClient')
             ->setMethods(['publish'])
@@ -57,6 +58,7 @@ class SnsTest extends \PHPUnit_Framework_TestCase
             ->with([
                 'Message'  => $message,
                 'TopicArn' => $topic,
+                'Subject'  => $subject
             ]);
 
         $awsMock = $this->getMock('Aws\Sdk', ['createSns']);
@@ -66,6 +68,6 @@ class SnsTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($snsMock));
         $this->serviceManager->setService('Aws\Sdk', $awsMock);
 
-        $this->instance->publish($message, $topic);
+        $this->instance->publish($message, $topic, $subject);
     }
 }
