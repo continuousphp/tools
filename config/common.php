@@ -15,6 +15,7 @@ return
             [
                 'invokables' =>
                     [
+                        'tools.service.alerting.adapter.sns' => '\Tools\Service\Alerting\Adapter\Sns'
                     ],
                 'abstract_factories' =>
                     [
