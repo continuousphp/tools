@@ -1,0 +1,11 @@
+/.idea
+/.vagrant
+/.buildpath
+/.project
+/.settings
+/.metadata
+/.cache
+/vendor
+.DS_Store
+composer.phar
+composer.lock

@@ -1,2 +1,2 @@
-# alerting
-Alerting module
+# tools
+Contains tools for queues, alerting, ...
