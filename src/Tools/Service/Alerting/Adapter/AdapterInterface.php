@@ -24,5 +24,5 @@ namespace Tools\Service\Alerting\Adapter;
  */
 interface AdapterInterface
 {
-    public function publish($message, $topic);
+    public function publish($message, $topic, $subject = null);
 }

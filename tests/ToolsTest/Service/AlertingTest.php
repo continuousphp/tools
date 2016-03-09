@@ -40,14 +40,15 @@ class AlertingTest extends \PHPUnit_Framework_TestCase
         $message = 'test message';
         $topic   = 'test topic';
         $result  = 'result';
+        $subject = 'test subject';
 
         $this->adapterMock
             ->expects($this->once())
             ->method('publish')
-            ->with($message, $topic)
+            ->with($message, $topic, $subject)
             ->will($this->returnValue($result));
 
-        $response = $this->instance->publish($message, $topic);
+        $response = $this->instance->publish($message, $topic, $subject);
 
         $this->assertEquals($result, $response);
     }

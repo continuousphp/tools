@@ -54,8 +54,16 @@ class Alerting implements ServiceLocatorAwareInterface
         return $this->adapter;
     }
 
-    public function publish($message, $topic)
+    /**
+     * Publish the given message to the given topic.
+     *
+     * @param string $message
+     * @param string $topic
+     * @param string $subject
+     * @return mixed
+     */
+    public function publish($message, $topic, $subject = null)
     {
-        return $this->getAdapter()->publish($message, $topic);
+        return $this->getAdapter()->publish($message, $topic, $subject);
     }
 }
