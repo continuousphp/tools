@@ -22,6 +22,7 @@ return
                     ],
                 'factories' =>
                     [
+                        'tools.service.alerting' => '\Tools\Factory\Alerting'
                     ],
                 'initializers' =>
                     [
