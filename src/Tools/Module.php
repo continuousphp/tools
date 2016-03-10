@@ -12,15 +12,15 @@
 namespace Tools;
 
 use Zend\Config\Config;
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface,
-    Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
 /**
  * Class Module
  * 
- * @package     Workflow
+ * @package     Tools
  * @subpackage  Module
- * @author      fde
+ * @author      Pascal Paulis <pascal.paulis@continuousphp.com>
  * @license     Unauthorized copying of this source code, via any medium is strictly
  *              prohibited, proprietary and confidential.
  */
