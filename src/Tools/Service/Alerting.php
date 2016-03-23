@@ -12,9 +12,6 @@
 
 namespace Tools\Service;
 
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorAwareTrait;
-
 /**
  * Alerting
  *
@@ -25,10 +22,8 @@ use Zend\ServiceManager\ServiceLocatorAwareTrait;
  * @license     Unauthorized copying of this source code, via any medium is strictly
  *              prohibited, proprietary and confidential.
  */
-class Alerting implements ServiceLocatorAwareInterface
+class Alerting
 {
-    use ServiceLocatorAwareTrait;
-
     /** @var \Tools\Service\Alerting\Adapter\AdapterInterface $adapter */
     protected $adapter;
 
