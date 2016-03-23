@@ -12,7 +12,6 @@
 
 namespace Tools\Service\Alerting\Adapter;
 
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 
 /**
@@ -25,7 +24,7 @@ use Zend\ServiceManager\ServiceLocatorAwareTrait;
  * @license     Unauthorized copying of this source code, via any medium is strictly
  *              prohibited, proprietary and confidential.
  */
-class Sns implements AdapterInterface, ServiceLocatorAwareInterface
+class Sns implements AdapterInterface
 {
     use ServiceLocatorAwareTrait;
 
