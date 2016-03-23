@@ -2,7 +2,7 @@
     "name": "continuousphp/tools",
     "description": "continuousphp tools",
     "type": "library",
-    "license": "proprietary",
+    "license": "MIT",
     "homepage": "https://github.com/continuousphp/tools",
     "authors": [
         {
