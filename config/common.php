@@ -15,16 +15,16 @@ return
             [
                 'invokables' =>
                     [
-                        'tools.service.alerting.adapter.sns' => '\Tools\Service\Alerting\Adapter\Sns',
-                        'tools.service.queue.adapter.sqs'    => '\Tools\Service\Queue\Adapter\Sqs'
+                        'tools.service.alerting.adapter.sns' => '\Tools\Service\Alerting\Adapter\Sns'
                     ],
                 'abstract_factories' =>
                     [
                     ],
                 'factories' =>
                     [
-                        'tools.service.alerting' => '\Tools\Factory\Alerting',
-                        'tools.service.queue'    => '\Tools\Factory\Queue'
+                        'tools.service.alerting'             => '\Tools\Factory\Service\Alerting',
+                        'tools.service.queue'                => '\Tools\Factory\Service\Queue',
+                        'tools.service.queue.adapter.sqs'    => '\Tools\Factory\Service\Queue\Adapter\Sqs'
                     ],
                 'initializers' =>
                     [
