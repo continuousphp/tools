@@ -15,7 +15,6 @@ return
             [
                 'invokables' =>
                     [
-                        'tools.service.alerting.adapter.sns' => '\Tools\Service\Alerting\Adapter\Sns'
                     ],
                 'abstract_factories' =>
                     [
@@ -24,7 +23,8 @@ return
                     [
                         'tools.service.alerting'             => '\Tools\Factory\Service\Alerting',
                         'tools.service.queue'                => '\Tools\Factory\Service\Queue',
-                        'tools.service.queue.adapter.sqs'    => '\Tools\Factory\Service\Queue\Adapter\Sqs'
+                        'tools.service.queue.adapter.sqs'    => '\Tools\Factory\Service\Queue\Adapter\Sqs',
+                        'tools.service.alerting.adapter.sns' => '\Tools\Factory\Service\Alerting\Adapter\Sns'
                     ],
                 'initializers' =>
                     [
