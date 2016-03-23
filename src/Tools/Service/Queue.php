@@ -13,7 +13,6 @@
 namespace Tools\Service;
 
 use Zend\Console\ColorInterface;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 
 /**
@@ -26,9 +25,8 @@ use Zend\ServiceManager\ServiceLocatorAwareTrait;
  * @license     Unauthorized copying of this source code, via any medium is strictly
  *              prohibited, proprietary and confidential.
  */
-class Queue implements ServiceLocatorAwareInterface, ConsoleAwareInterface
+class Queue implements ConsoleAwareInterface
 {
-    use ServiceLocatorAwareTrait;
     use ConsoleAwareTrait;
 
     /** @var \Tools\Service\Queue\Adapter\AdapterInterface $adapter */
