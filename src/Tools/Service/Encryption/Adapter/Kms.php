@@ -40,6 +40,12 @@ class Kms implements AdapterInterface
 
     public function encrypt($key, $original)
     {
+        $result = $this->getClient()->encrypt([
+            'KeyId'     => $key,
+            'Plaintext' => $original
+        ]);
+
+        return $result->get('CiphertextBlob');
     }
 
     public function decrypt($encrypted)
