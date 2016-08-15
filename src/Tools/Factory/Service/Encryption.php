@@ -10,7 +10,7 @@ class Encryption implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $encryption = new \Tools\Service\Encryption();
-        $encryption->setAdapter($serviceLocator->get('tools.service.encryption.adapter.sqs'));
+        $encryption->setAdapter($serviceLocator->get('tools.service.encryption.adapter.kms'));
 
         return $encryption;
     }
