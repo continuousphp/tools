@@ -45,10 +45,15 @@ class Kms implements AdapterInterface
             'Plaintext' => $original
         ]);
 
-        return $result->get('CiphertextBlob');
+        return base64_encode($result->get('CiphertextBlob'));
     }
 
     public function decrypt($encrypted)
     {
+        $result = $this->getClient()->decrypt([
+            'CiphertextBlob' => base64_decode($encrypted),
+        ]);
+
+        return $result->get('Plaintext');
     }
 }
