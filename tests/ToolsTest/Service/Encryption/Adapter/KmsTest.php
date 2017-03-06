@@ -34,11 +34,20 @@ class KmsTest extends \PHPUnit_Framework_TestCase
     {
         $this->instance = new \Tools\Service\Encryption\Adapter\Kms();
 
-        $awsMock = $this->getMock('\Aws\Common\Aws');
-
         $this->serviceManager = new ServiceManager();
-        $this->serviceManager->setService('aws', $awsMock);
         $this->instance->setServiceLocator($this->serviceManager);
+
+        // Aws Mock
+        $awsMock = $this->getMock('\Aws\Common\Aws');
+        $this->serviceManager->setService('aws', $awsMock);
+
+        // ZF Config Mock
+        $config =
+            [
+                'version' => '2014-11-01',
+                'region'  => 'us-east-1',
+            ];
+        $this->serviceManager->setService('config', $config);
     }
 
     public function testEncrypt()

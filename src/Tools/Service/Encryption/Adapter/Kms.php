@@ -33,9 +33,20 @@ class Kms implements AdapterInterface
      */
     protected function getClient()
     {
+        $config = $this->getServiceLocator()->get('config');
+
+        $kmsConfig =
+            [
+                'version' => '2014-11-01'
+            ];
+
+        if (array_key_exists('aws', $config)) {
+            $kmsConfig = array_merge($kmsConfig, $config['aws']);
+        }
+
         /** @var \Aws\Sdk $aws */
         $aws = $this->getServiceLocator()->get(\Aws\Sdk::class);
-        return $aws->createKms(['version' => '2014-11-01']);
+        return $aws->createKms($kmsConfig);
     }
 
     public function encrypt($key, $original)

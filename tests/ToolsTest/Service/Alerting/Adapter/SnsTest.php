@@ -34,11 +34,20 @@ class SnsTest extends \PHPUnit_Framework_TestCase
     {
         $this->instance = new \Tools\Service\Alerting\Adapter\Sns();
 
-        $awsMock = $this->getMock('\Aws\Common\Aws');
-
         $this->serviceManager = new ServiceManager();
-        $this->serviceManager->setService('aws', $awsMock);
         $this->instance->setServiceLocator($this->serviceManager);
+
+        // Aws Mock
+        $awsMock = $this->getMock('\Aws\Common\Aws');
+        $this->serviceManager->setService('aws', $awsMock);
+
+        // ZF Config Mock
+        $config =
+            [
+                'version' => '2010-03-31',
+                'region'  => 'us-east-1',
+            ];
+        $this->serviceManager->setService('config', $config);
     }
 
     public function testPublish()

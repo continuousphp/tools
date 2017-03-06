@@ -33,9 +33,20 @@ class Sns implements AdapterInterface
      */
     protected function getClient()
     {
+        $config = $this->getServiceLocator()->get('config');
+
+        $snsConfig =
+            [
+                'version' => '2010-03-31'
+            ];
+
+        if (array_key_exists('aws', $config)) {
+            $snsConfig = array_merge($snsConfig, $config['aws']);
+        }
+
         /** @var \Aws\Sdk $aws */
         $aws = $this->getServiceLocator()->get(\Aws\Sdk::class);
-        return $aws->createSns(['version' => '2010-03-31']);
+        return $aws->createSns($snsConfig);
     }
 
     public function publish($message, $topic, $subject = null)

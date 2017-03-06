@@ -33,9 +33,20 @@ class Sqs implements AdapterInterface
      */
     protected function getClient()
     {
+        $config = $this->getServiceLocator()->get('config');
+
+        $sqsConfig =
+            [
+                'version' => '2012-11-05'
+            ];
+
+        if (array_key_exists('aws', $config)) {
+            $sqsConfig = array_merge($sqsConfig, $config['aws']);
+        }
+
         /** @var \Aws\Sdk $aws */
         $aws = $this->getServiceLocator()->get(\Aws\Sdk::class);
-        return $aws->createSqs(['version' => '2012-11-05']);
+        return $aws->createSqs($sqsConfig);
     }
 
     public function sendMessage($queueUrl, $messageBody)
