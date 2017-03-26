@@ -12,6 +12,8 @@
 
 namespace Tools\Service\Queue\Adapter;
 
+use Tools\Service\AwsConfigAwareInterface;
+use Tools\Service\AwsConfigAwareTrait;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 
 /**
@@ -24,18 +26,25 @@ use Zend\ServiceManager\ServiceLocatorAwareTrait;
  * @license     Unauthorized copying of this source code, via any medium is strictly
  *              prohibited, proprietary and confidential.
  */
-class Sqs implements AdapterInterface
+class Sqs implements AdapterInterface, AwsConfigAwareInterface
 {
     use ServiceLocatorAwareTrait;
+    use AwsConfigAwareTrait;
 
     /**
      * @return \Aws\Sqs\SqsClient
      */
     protected function getClient()
     {
+        $parameters = ['version' => '2012-11-05'];
+
+        if ($this->getAwsConfig()) {
+            $parameters = array_merge($parameters, $this->getAwsConfig()->toArray());
+        }
+
         /** @var \Aws\Sdk $aws */
         $aws = $this->getServiceLocator()->get(\Aws\Sdk::class);
-        return $aws->createSqs(['version' => '2012-11-05']);
+        return $aws->createSqs($parameters);
     }
 
     public function sendMessage($queueUrl, $messageBody)

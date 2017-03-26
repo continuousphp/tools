@@ -11,6 +11,7 @@
 
 namespace ToolsTest\Service\Queue\Adapter;
 
+use Tools\Service\AwsConfig;
 use Zend\ServiceManager\ServiceManager;
 
 /**
@@ -33,6 +34,13 @@ class SqsTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->instance = new \Tools\Service\Queue\Adapter\Sqs();
+
+        $awsConfig = new AwsConfig();
+        $awsConfig
+            ->setAwsRegion('eu-west-1')
+            ->setAwsKey('AZERTY1234')
+            ->setAwsSecret('azerty1234!');
+        $this->instance->setAwsConfig($awsConfig);
 
         $awsMock = $this->getMock('\Aws\Common\Aws');
 
@@ -62,6 +70,15 @@ class SqsTest extends \PHPUnit_Framework_TestCase
         $awsMock = $this->getMock('Aws\Sdk', ['createSqs']);
         $awsMock->expects($this->once())
             ->method('createSqs')
+            ->with([
+                'version'     => '2012-11-05',
+                'region'      => 'eu-west-1',
+                'credentials' =>
+                    [
+                        'key'    => 'AZERTY1234',
+                        'secret' => 'azerty1234!'
+                    ]
+            ])
             ->will($this->returnValue($sqsMock));
         $this->serviceManager->setService('Aws\Sdk', $awsMock);
 
