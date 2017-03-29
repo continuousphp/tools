@@ -15,6 +15,7 @@ return
             [
                 'invokables' =>
                     [
+                        'tools.service.aws-config' => '\Tools\Service\AwsConfig',
                     ],
                 'abstract_factories' =>
                     [
@@ -34,6 +35,7 @@ return
                     ],
                 'shared' =>
                     [
+                        'tools.service.aws-config' => false
                     ],
             ],
         'hydrators' =>
