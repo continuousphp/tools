@@ -11,17 +11,17 @@
         }
     ],
     "require": {
-        "php":                               ">=7.0",
-        "zendframework/zend-servicemanager": "~2.4",
-        "zendframework/zend-stdlib":         "~2.4",
-        "zendframework/zend-json":           "~2.4",
-        "zendframework/zend-log":            "~2.4",
-        "zendframework/zend-modulemanager":  "~2.4",
-        "zendframework/zend-console":        "~2.4",
-        "aws/aws-sdk-php-zf2":               "~2.0"
+        "php":                               "^5.5 || ^7.0",
+        "zendframework/zend-servicemanager": "^2.4.0",
+        "zendframework/zend-stdlib":         "^2.4.0",
+        "zendframework/zend-json":           "^2.4.0",
+        "zendframework/zend-log":            "^2.4.0",
+        "zendframework/zend-modulemanager":  "^2.4.0",
+        "zendframework/zend-console":        "^2.4.0",
+        "aws/aws-sdk-php-zf2":               "^2.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.5"
+        "phpunit/phpunit": "^4.5"
     },
     "autoload": {
         "psr-0": {
