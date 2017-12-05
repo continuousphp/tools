@@ -35,7 +35,7 @@ class AwsConfig
      * @param string $region
      * @return $this
      */
-    public function setAwsRegion(string $region)
+    public function setAwsRegion($region)
     {
         $this->awsRegion = $region;
         return $this;
@@ -57,7 +57,7 @@ class AwsConfig
      * @param string $key
      * @return $this
      */
-    public function setAwsKey(string $key)
+    public function setAwsKey($key)
     {
         $this->awsKey = $key;
         return $this;
@@ -79,7 +79,7 @@ class AwsConfig
      * @param string $secret
      * @return $this
      */
-    public function setAwsSecret(string $secret)
+    public function setAwsSecret($secret)
     {
         $this->awsSecret = $secret;
         return $this;
